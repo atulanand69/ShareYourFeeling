@@ -1,0 +1,87 @@
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: #e6f7ff;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #4caf50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 28px;
+}
+
+#alphabet {
+  text-align: center;
+  padding: 15px;
+}
+
+#letters button { 
+  margin: 5px;
+  padding: 10px 14px;
+  border: none;
+  background-color: #d9d9d9;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#letters button:hover {
+  background-color: #bfbfbf;
+}
+
+#feeling-list {
+  text-align: center;
+  padding: 10px;
+}
+
+.feeling {
+  display: inline-block;
+  margin: 5px;
+  padding: 6px 10px;
+  background-color: #cceeff;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+#share-box {
+  text-align: center;
+  padding: 20px;
+}
+
+textarea {
+  width: 90%;
+  max-width: 500px;
+  padding: 12px;
+  border: 1px solid #888;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  margin-top: 10px;
+  background-color: #28a745;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+}
+
+@media (max-width: 600px) {
+  textarea, button {
+    width: 100%;
+  }
+}
