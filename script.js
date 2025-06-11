@@ -27,6 +27,6 @@ function sendFeeling() {
   }
 
   const message = encodeURIComponent(`Hello, I would like to talk about: \"${text}\"`);
-  const phone = "919793381459";
+  const phone = "919931231959";
   window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
 }
