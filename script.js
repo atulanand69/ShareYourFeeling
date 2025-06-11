@@ -56,6 +56,6 @@ function sendFeeling() {
   }
 
   const message = encodeURIComponent("I want to share: " + text);
-  const phone = "919793381451";
+  const phone = "919931231959";
   window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
 }
