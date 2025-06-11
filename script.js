@@ -1,31 +1,4 @@
-const feelings = {
-  A: ['Angry', 'Alone', 'Anxious'],
-  B: ['Bored', 'Broken'],
-  C: ['Calm', 'Confused'],
-  D: ['Depressed', 'Determined'],
-  E: ['Excited', 'Empty'],
-  F: ['Frustrated', 'Fearful'],
-  G: ['Grateful', 'Guilty'],
-  H: ['Happy', 'Helpless'],
-  I: ['Inspired', 'Insecure'],
-  J: ['Joyful', 'Jealous'],
-  K: ['Kind'],
-  L: ['Lonely', 'Loved'],
-  M: ['Motivated', 'Moody'],
-  N: ['Nervous', 'Numb'],
-  O: ['Optimistic', 'Overwhelmed'],
-  P: ['Peaceful', 'Panicked'],
-  Q: ['Quiet'],
-  R: ['Relaxed', 'Restless'],
-  S: ['Sad', 'Satisfied'],
-  T: ['Tired', 'Thankful'],
-  U: ['Upset', 'Uplifted'],
-  V: ['Vulnerable'],
-  W: ['Worried', 'Weak'],
-  X: ['Xhausted'], // creative spelling
-  Y: ['Yearning'],
-  Z: ['Zoned Out']
-};
+
 
 // Create A-Z buttons
 const lettersDiv = document.getElementById("letters");
