@@ -1,12 +1,10 @@
-
-
-// Create A-Z buttons
 const lettersDiv = document.getElementById("letters");
 const feelingListDiv = document.getElementById("feeling-list");
 
 for (let letter in feelings) {
   const btn = document.createElement("button");
   btn.textContent = letter;
+  btn.setAttribute("aria-label", `Show feelings starting with ${letter}`);
   btn.onclick = () => showFeelings(letter);
   lettersDiv.appendChild(btn);
 }
@@ -24,11 +22,11 @@ function showFeelings(letter) {
 function sendFeeling() {
   const text = document.getElementById("feeling-text").value.trim();
   if (!text) {
-    alert("Please enter a feeling.");
+    alert("Please enter a feeling before sending.");
     return;
   }
 
-  const message = encodeURIComponent("I want to share: " + text);
-  const phone = "919931231959";
+  const message = encodeURIComponent(`Hello, I would like to talk about: \"${text}\"`);
+  const phone = "919793381459";
   window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
 }
