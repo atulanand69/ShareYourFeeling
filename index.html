@@ -6,11 +6,148 @@
   <title>Share Your Feeling</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(to right, #e6f7ff, #ffffff);
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background-color: #6f42c1;
+      color: #fff;
+      padding: 25px 10px;
+      text-align: center;
+      font-size: 32px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #ddd;
+      margin-top: 10px;
+    }
+
+    #intro {
+      text-align: center;
+      font-size: 18px;
+      padding: 15px;
+      background-color: #f9f9f9;
+    }
+
+    #alphabet {
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    #letters button {
+      margin: 6px;
+      padding: 10px 16px;
+      border: none;
+      background-color: #d1ecf1;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    #letters button:hover {
+      background-color: #17a2b8;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    #feeling-list {
+      text-align: center;
+      padding: 15px;
+    }
+
+    .feeling {
+      display: inline-block;
+      margin: 6px;
+      padding: 8px 12px;
+      background-color: #f8d7da;
+      border-radius: 20px;
+      font-size: 15px;
+      color: #721c24;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+    }
+
+    .feeling:hover {
+      background-color: #f5c6cb;
+    }
+
+    #share-box {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: #f0f8ff;
+      border-top: 2px solid #ccc;
+    }
+
+    textarea, select {
+      width: 90%;
+      max-width: 600px;
+      padding: 14px;
+      border: 1px solid #aaa;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-top: 10px;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    button {
+      margin-top: 12px;
+      background-color: #28a745;
+      color: white;
+      padding: 14px 28px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    }
+
+    button:hover {
+      background-color: #218838;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #e9ecef;
+      font-size: 14px;
+      color: #6c757d;
+    }
+
+    @media (max-width: 768px) {
+      textarea, select {
+        width: 95%;
+      }
+
+      header {
+        font-size: 26px;
+      }
+
+      .subtitle {
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>Share Your Feeling</h1>
+    <p class="subtitle">Express yourself anonymously & freely</p>
   </header>
+
+  <section id="intro">
+    <p>Type your feelings below, choose a mood, and send it privately via WhatsApp.</p>
+  </section>
 
   <section id="alphabet">
     <div id="letters"></div>
@@ -19,15 +156,39 @@
   <section id="feeling-list"></section>
 
   <section id="share-box">
-    <h2>Write your feelings below</h2>
-    <textarea id="feeling-text" rows="5" placeholder="Type here..."></textarea>
+    <h2>Write your feelings</h2>
+    <select id="mood-select">
+      <option value="">Select your mood</option>
+      <option value="Happy">😊 Happy</option>
+      <option value="Sad">😢 Sad</option>
+      <option value="Angry">😠 Angry</option>
+      <option value="Excited">😄 Excited</option>
+      <option value="Confused">😕 Confused</option>
+    </select>
+    <textarea id="feeling-text" rows="5" placeholder="Type your thoughts here..."></textarea>
     <button onclick="sendFeeling()">Send via WhatsApp</button>
+    <p id="confirmation-message" style="display: none; color: green; margin-top: 10px;">✅ Your feeling has been shared!</p>
   </section>
 
   <footer>
     <p>© 2025 ShareYourFeeling.com</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    function sendFeeling() {
+      const feeling = document.getElementById("feeling-text").value;
+      const mood = document.getElementById("mood-select").value;
+      if (!feeling.trim()) {
+        alert("Please write something first.");
+        return;
+      }
+      const message = `Mood: ${mood}\nFeeling: ${feeling}`;
+      const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+      document.getElementById("confirmation-message").style.display = 'block';
+      document.getElementById("feeling-text").value = '';
+      document.getElementById("mood-select").value = '';
+    }
+  </script>
 </body>
 </html>
